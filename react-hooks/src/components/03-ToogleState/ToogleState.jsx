@@ -6,7 +6,7 @@ export const ToogleState = () => {
   return (
     <>    
       <p>Estado: {isOn ? 'Encendido' : 'Apagado'}</p>
-      <button onClick={() => setIsOn(!isOn)}>Toggle</button>
+      <button className='w-max h-max rounded-sm pointer-events-auto bg-slate-600 text-white' onClick={() => setIsOn(!isOn)}>Toggle</button>
     </>    
   );
 }
