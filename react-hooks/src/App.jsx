@@ -6,9 +6,9 @@ function App() {
   
   return (
     <div className='w-full h-96 bg-zinc-700 flex flex-col justify-center items-center'>
-      <Counter />
-      {/* <InputText />
-      <ToogleState /> */}
+      {/* <Counter /> */}
+      <InputText />
+      {/* <ToogleState /> */}
     </div>
   )
 }
