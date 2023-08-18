@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 export const InputText = () => {
 
-
   const [style, setStyle] = useState('w-96 bg-sky-300 p-2')
 
   const [text, setText] = useState('');
