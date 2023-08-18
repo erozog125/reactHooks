@@ -8,6 +8,8 @@ export const Counter = () => {
     <>
       <p className='text-4xl text-sky-400'>Contador: {count}</p>
       <button className='w-40 text-center text-sky-700 bg-gray-400 rounded-2xl m-4' onClick={() => setCount(count + 1)}>Incrementar</button>    
+      <button className='w-40 text-center text-sky-700 bg-gray-400 rounded-2xl m-4' onClick={() => setCount(count - 1)}>Decrementar</button>    
+      <button className='w-40 text-center text-sky-700 bg-gray-400 rounded-2xl m-4' onClick={() => setCount(0)}>Setear</button>    
     </>
     
   )
