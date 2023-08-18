@@ -5,7 +5,7 @@ import { ToogleState } from './components/03-ToogleState/ToogleState'
 function App() {
   
   return (
-    <div className='w-full h-96 bg-zinc-700 flex flex-col justify-center items-center'>
+    <div className='w-full h-96 bg-zinc-700 flex justify-around items-center'>
       {/* <Counter /> */}
       <InputText />
       {/* <ToogleState /> */}

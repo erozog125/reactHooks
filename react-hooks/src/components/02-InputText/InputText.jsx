@@ -1,24 +1,41 @@
 import React, { useState } from 'react';
 
 export const InputText = () => {
+
   const [text, setText] = useState('');
   const [color, setColor] = useState('black');
 
-const txt = (valor) => setText(valor.target.value)
+  const txt = (valor) => setText(valor.target.value)
 
-const handleInputKeyPress = (event) => {
-  event.code === 'Enter' ? setColor('red') : setColor('black')
-}
+  const handleInputKeyPress = (event) => {
+    console.log(event);
+    if (event.code === 'Enter') {
+      setColor('red')
+    }else if (event.code === 'Backspace') {
+      setColor('black')
+    }
+    // event.code === 'Enter' ? setColor('red') : setColor('black')
+  }
 
-const [newText, newSetText] = useState('')
-// const [btn, ]
+  // SEPARACIÓN DE INPUT
 
-const newTxt = (e) => newSetText(e.target.value)
+  const [textInput, setTextInput] = useState('')
+  const [newText, newSetText] = useState('')
+
+  const valueInput = (event) => {
+    setTextInput(event.target.value);
+  }
+
+  const btnClick = () => {
+    newSetText(textInput)
+    setTextInput('')
+  }
+
 
   return (
     <>
-      <div>
-        <p className='m-4 text-2xl font-semibold text-black' style={{color}}>Texto ingresado: {text}</p>
+      <div className='flex flex-col gap-2'>
+        <p className='my-2 text-2xl font-semibold' style={{color}}>Texto ingresado: {text}</p>
         <input
           placeholder='Ingresa el texto'
           className='w-96 bg-blue-300 p-2  placeholder:text-gray-600 font-semibold'
@@ -28,18 +45,17 @@ const newTxt = (e) => newSetText(e.target.value)
           onKeyUp={handleInputKeyPress}
         />
       </div>
-      <div>
-        <p className='m-4 text-2xl font-semibold text-black' style={{color}}>Texto a cambiar: {newText}</p>
+      <div className='flex flex-col gap-2'>
+        <p className='my-2 text-2xl font-semibold text-black'>Texto: {newText}</p>
         <input
           placeholder='Ingresa el texto'
           className='w-96 bg-blue-300 p-2  placeholder:text-gray-600 font-semibold'
           type="text"
-          value={newText}
-          onClick={newTxt}
-          onKeyUp={handleInputKeyPress}
-          ont
+          value={textInput}
+          onChange={valueInput}
         />
-        {/* <button value={}>Enviar texto</button> */}
+        <button className='p-2 text-base font-semibold text-zinc-700 bg-sky-600' 
+          onClick={btnClick} >Enviar texto</button>
       </div>
     </>
     
