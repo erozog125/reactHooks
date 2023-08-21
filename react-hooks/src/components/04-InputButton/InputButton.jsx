@@ -6,18 +6,18 @@ export const InputButton = () => {
   // DE '.target' USAR '.current'
 
   const [newText, newSetText] = useState('')
-  // const [textInput, setTextInput] = useState('')
+  const [textInput, setTextInput] = useState('')
   const input = useRef('')
 
-  // const valueInput = (event) => {
-  //   setTextInput(event.target.value);
-  // }
+  const valueInput = (event) => {
+    setTextInput(event.target.value);
+  }
 
   const btnClick = () => {
-    // newSetText(textInput)
-    // setTextInput('')
-    const txt = input.current.value
-    newSetText(txt)
+    newSetText(textInput)
+    setTextInput('')
+    // const txt = input.current.value
+    // newSetText(txt)
   }
 
   return (
@@ -28,7 +28,7 @@ export const InputButton = () => {
       className='w-96 bg-blue-300 p-2  placeholder:text-gray-600 font-semibold'
       type="text"
       ref={input}
-      // onChange={valueInput}
+      onChange={valueInput}
     />
     <button className='p-2 text-base font-semibold text-zinc-700 bg-sky-600' 
       onClick={btnClick} >Enviar texto</button>
