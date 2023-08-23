@@ -1,48 +1,34 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react'
+import { Message } from '../Message/Message'
+let tasksList = []
 
-export const Tasks = () => {
+export const Task = () => {
+  const TA = useRef('')
+  const [tasks, setTasks] = useState([])
+  const [styleMsg, setStyleMsg] = useState('w-60 flex justify-between bg-sky-500 p-4 m-4 visible')
 
+  const handleTask = () => {
+    const currentTask = TA.current.value
+    // spread operator
+    tasksList = [...tasksList,currentTask]
+    setTasks(tasksList)
+    localStorage.setItem('tasks',tasksList)
+  }
+
+  const handleClose = (event) => {
+     setStyleMsg('w-60 flex justify-between bg-sky-500 p-4 m-4 hidden')
+  }
     
-    const [texts, useTexts] = useState('')
-    const into = useRef(null)
-    
-    const array = [];
-    const handleText = () => {
-        
-        const txt = into.current.value
-        useTexts(txt)
-        array.push(txt)
-        const ul = document.querySelector('ul')
-        const deleted = document.createElement('button')
-        deleted.textContent = 'X'
-
-        array.forEach((e) => {
-            const li = document.createElement('li'); 
-            
-            li.textContent = e
-            li.classList = 'm-5 bg-red-800'
-            ul.appendChild(li)      
-            ul.appendChild(deleted)
-        })
-
-        console.log(array);          
-    }
-
-    return (
-        <>
-            <div className='flex flex-col justify-center items-center'>
-                <h1>Tasks</h1>
-                <br />
-                <textarea ref={into} name="task" id="task" cols="30" rows="10"></textarea>
-                <br />
-                <button onClick={handleText} className='bg-blue-600'>Add task</button>
-            </div>
-            <hr />
-            <div className='bg-red-100'>
-                <h1>Added Tasks</h1>
-                <ul className='gap-5'>
-                </ul>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className='w-full h-auto bg-gray-500 flex flex-col items-center'>
+        <h2 className='text-2xl m-2 text-yellow-500'>ToDoList</h2>
+        <textarea placeholder="What's your task?" className='p-2 rounded-sm w-60 h-24' ref={TA} name="" id="" cols="30" rows="10"></textarea>
+        <button className='w-48 bg-green-500 m-4 cursor-pointer hover:bg-green-900 text-white' onClick={handleTask}>Create Task</button>        
+      </div>    
+    <ul>
+      { tasks.map( (task, idx) => <Message style={styleMsg} key={idx} msg={task} eventHandle={handleClose} /> ) }
+    </ul>
+    </>
+  )
 }
