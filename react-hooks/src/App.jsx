@@ -7,10 +7,10 @@ function App() {
 
   return (
     <div className='w-full bg-gray-600 flex flex-col justify-center items-center h-screen'>
-      {/* <Counter /> */}
+      <Counter />
       {/* <InputText /> */}
       {/* <ToogleState /> */}
-      <Todo />
+      {/* <Todo /> */}
     </div>
   )
 }
