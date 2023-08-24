@@ -3,6 +3,8 @@ import { InputText } from "./components/02-InputText/InputText"
 import { ToogleState } from './components/03-ToogleState/ToogleState'
 import { InputButton } from "./components/04-InputButton/InputButton"
 import { ToDoList } from "./components/05-ToDoList/ToDoList"
+import { ConditionalColor } from "./components/06-ConditionalColor/ConditionalColor";
+import { PaperRockScissors } from "./components/07-PaperRockScissors/PaperRockScissors";
 
 function App() {
   
@@ -12,7 +14,9 @@ function App() {
       {/* <InputText /> */}
       {/* <ToogleState /> */}
       {/* <InputButton /> */}
-      <ToDoList />
+      {/* <ToDoList /> */}
+      {/* {<ConditionalColor />} */}
+      <PaperRockScissors/>
     </div>
   )
 }
