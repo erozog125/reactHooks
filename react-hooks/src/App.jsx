@@ -1,11 +1,11 @@
+import { RockPaperScissors } from "./components/RockPaper&Scissors/RockPaperScissors"
 
-import { Counter } from "./components/Counter/Counter"
 
 function App() {
   
   return (
     <div className='w-full h-auto bg-zinc-700 flex flex-col justify-center items-center'>
-      <Counter></Counter>
+      <RockPaperScissors/>
     </div>
   )
 }
